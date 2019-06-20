@@ -1,7 +1,6 @@
-.idea
+.idea/*
 vsc.xml
-/node_modules
-/public/hot
+/node_modules/public/hot
 /public/storage
 /storage/*.key
 /vendor

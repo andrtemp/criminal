@@ -1,4 +1,4 @@
-##Интсрукция по установке
+<h2>Интсрукция по установке</h2>
 
 - Скачать и установить локальные сервер Apache(для windows XAMPP) https://www.apachefriends.org/ru/index.html
 - Установить Node JS https://nodejs.org/uk/
@@ -9,16 +9,16 @@
  `DB_PASSWORD=`пароль
 - Открыть консоль и перейти в папку с проектом на сервере
 - Поменять права на чтение и на запись папке `storage`
-- Запустить команды `php artisan key:generate` `php artisan migrate` и `php artisan storage:link`
+- Запустить команды `composer update` `php artisan key:generate` `php artisan migrate` и `php artisan storage:link`
 - Запустить команды `npm install` и `npm run dev`
 - Открыть в браузере http://localhost и радоваться
 
-###Использование
+<h3>Использование</h3>
 - Первый пользователь, гистрированный в системе будет админом
 - Он может создавать и редактировать записи 
 - Любой залогиненый пользователь может только просмотривать инфу из приложения
 
-###Полезне ссылки
+<h3>Полезне ссылки</h3>
 - https://pureinfotech.com/install-xampp-windows-10/
 - http://webupblog.ru/kak-ustanovit-node-js-na-windows/
 - https://gist.github.com/hootlex/da59b91c628a6688ceb1
