@@ -1,0 +1,31 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.list-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.criminal-card {
+  width: 23%;
+  margin: 1%;
+}
+
+.btn-criminal {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.criminal-photo{
+  padding: 1em;
+}
+
+.img-view{
+  width: 50%;
+}
