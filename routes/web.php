@@ -20,3 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('criminals', 'CriminalController');
+
+Route::post('/criminals/file/load', 'CriminalController@loadFile');
+Route::get('criminals/files/get/{id}', 'CriminalController@file');

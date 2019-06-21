@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Criminal;
+use App\FileCriminal;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -29,7 +31,6 @@ class CriminalController extends Controller
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create()
     {
@@ -130,5 +131,51 @@ class CriminalController extends Controller
         }
         $criminal->delete();
         return redirect('/criminals');
+    }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function loadFile(){
+        if  (auth()->id() != 1){
+            abort(403);
+        }
+        $fileCriminal = new FileCriminal();
+
+        $file = \request()->file('file');
+        $id = \request('id');
+        $filename = $file->hashName();
+
+        $fileCriminal->filename = $filename;
+        $fileCriminal->criminal_id = $id;
+        $fileCriminal->save();
+        $file->storeAs('public/files', $file->hashName());
+
+        return redirect('/criminals');
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function file($id){
+        if  (auth()->id() != 1){
+            abort(403);
+        }
+
+        $file = FileCriminal::query()->where(['id' => $id])->first();
+//        //PDF file is stored under project/public/download/info.pdf
+//        $file= public_path(). "/download/info.pdf";
+//
+//        $headers = array(
+//            'Content-Type: application/pdf',
+//        );
+//
+//        return Response::download($file, 'filename.pdf', $headers);
+        if (!empty($file->filename)) {
+            return response()->download(public_path(). DIRECTORY_SEPARATOR . 'storage/files/' . $file->filename);
+        } else{
+            abort(403);
+        }
     }
 }

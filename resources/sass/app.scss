@@ -27,5 +27,14 @@
 }
 
 .img-view{
-  width: 50%;
+  width: 100%;
+}
+
+.button-print{
+  display: flex;
+  justify-content: flex-start;
+  padding: 2em;
+}
+.button-print a{
+  margin: 2em;
 }

@@ -19,4 +19,8 @@ class Criminal extends Model
         'birth_date',
         'article'
     ];
+
+    public function files(){
+        return $this->hasMany(FileCriminal::class);
+    }
 }

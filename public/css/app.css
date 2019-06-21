@@ -11150,6 +11150,18 @@ a.text-dark:focus {
 }
 
 .img-view {
-  width: 50%;
+  width: 100%;
+}
+
+.button-print {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+  padding: 2em;
+}
+
+.button-print a {
+  margin: 2em;
 }
 
